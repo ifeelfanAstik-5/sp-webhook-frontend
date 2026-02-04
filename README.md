@@ -2,6 +2,12 @@
 
 A React-based frontend for the Spenza webhook management system with built-in testing tools and external webhook integration support.
 
+## 🚀 Live Demo
+
+**Production URL:** https://sp-webhook-frontend.vercel.app
+
+**Backend API:** https://sp-webhook-backend-production.up.railway.app
+
 ## Features
 
 - **JWT Authentication**: Secure user login and registration
@@ -10,6 +16,7 @@ A React-based frontend for the Spenza webhook management system with built-in te
 - **Webhook Tester**: Built-in tools for testing webhook functionality
 - **External Integration**: Support for LocalTunnel and external services like Clerk
 - **Modern UI**: Clean, responsive interface built with Tailwind CSS
+- **Production Ready**: Deployed on Vercel with Railway backend
 
 ## Tech Stack
 
@@ -20,6 +27,7 @@ A React-based frontend for the Spenza webhook management system with built-in te
 - **HTTP Client**: Axios
 - **UI Components**: Headless UI + Heroicons
 - **Authentication**: JWT-based auth with context API
+- **Deployment**: Vercel (Frontend), Railway (Backend)
 
 ## Quick Start
 
@@ -30,18 +38,24 @@ A React-based frontend for the Spenza webhook management system with built-in te
 
 ### Installation
 
-1. Install dependencies:
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd sp-webhook-frontend
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Set up environment variables:
+3. Set up environment variables:
 ```bash
 cp .env.example .env
 # Edit .env with your configuration
 ```
 
-3. Start the development server:
+4. Start the development server:
 ```bash
 npm run dev
 ```
@@ -54,8 +68,14 @@ The application will be available at `http://localhost:5173`
 # API Configuration
 VITE_API_URL=http://localhost:3000
 
+# Production (Vercel)
+VITE_API_URL=https://sp-webhook-backend-production.up.railway.app
+
 # LocalTunnel Configuration (optional)
 VITE_LOCALTUNNEL_SUBDOMAIN=spenza-webhook
+
+# Environment
+NODE_ENV=production
 ```
 
 ## Application Structure
@@ -173,18 +193,69 @@ src/
 
 ## Deployment
 
+### 🚀 Production Deployment
+
+The application is already deployed and live:
+- **Frontend:** https://sp-webhook-frontend.vercel.app
+- **Backend:** https://sp-webhook-backend-production.up.railway.app
+
 ### Build for Production
 ```bash
 npm run build
 ```
 
+### Deployment Scripts
+
+#### Quick Deploy (Recommended)
+```bash
+# Uses the automated deployment script
+./deploy.sh
+```
+
+#### Manual Vercel Deployment
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy to production
+vercel --prod
+```
+
 ### Environment Setup
-1. Set `VITE_API_URL` to production backend URL
-2. Configure HTTPS if required
-3. Set up proper CORS on backend
+
+#### Development
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+#### Production (Vercel)
+The production environment variable is configured in `vercel.json`:
+```json
+{
+  "env": {
+    "VITE_API_URL": "https://sp-webhook-backend-production.up.railway.app"
+  }
+}
+```
+
+### Hosting Configuration
+
+#### Vercel Configuration
+- **Framework:** Vite
+- **Build Command:** `./vercel-build.sh`
+- **Output Directory:** `dist`
+- **Node.js Version:** 20.x
+
+#### Railway Backend
+- **URL:** https://sp-webhook-backend-production.up.railway.app
+- **Environment:** Production
+- **Database:** PostgreSQL (if applicable)
 
 ### Hosting Options
-- Vercel (recommended)
+- **Vercel** (recommended) - ✅ Currently used
 - Netlify
 - AWS S3 + CloudFront
 - Any static hosting service
@@ -194,28 +265,65 @@ npm run build
 ### Common Issues
 
 **API Connection Errors:**
-- Verify backend is running
-- Check `VITE_API_URL` configuration
+- Verify backend is running at `https://sp-webhook-backend-production.up.railway.app`
+- Check `VITE_API_URL` configuration in environment variables
 - Ensure CORS is configured on backend
+- Check network connectivity and firewall settings
 
 **Authentication Issues:**
 - Clear browser localStorage
 - Verify JWT secret matches backend
 - Check token expiration
+- Ensure backend authentication endpoints are accessible
 
 **LocalTunnel Issues:**
 - Ensure port 3000 is available
 - Check firewall settings
 - Try different subdomain
+- Verify LocalTunnel service status
+
+**Deployment Issues:**
+- Ensure Vercel CLI is authenticated: `vercel login`
+- Check `vercel.json` configuration
+- Verify environment variables in Vercel dashboard
+- Check build logs for errors
+
+**Build Errors:**
+- Run `npm install` to update dependencies
+- Check Node.js version (requires 20+)
+- Verify TypeScript configuration
+- Check for missing imports or syntax errors
+
+### Getting Help
+
+1. **Check the logs:** Run `npm run dev` and check console for errors
+2. **Verify backend status:** Ensure Railway backend is running
+3. **Test API endpoints:** Use curl or Postman to test backend connectivity
+4. **Check Vercel deployment:** Visit Vercel dashboard for deployment logs
+
+## Project Status
+
+- ✅ **Frontend:** Deployed on Vercel
+- ✅ **Backend:** Deployed on Railway  
+- ✅ **Authentication:** JWT-based auth working
+- ✅ **Webhook Management:** Full CRUD operations
+- ✅ **Testing Tools:** Built-in webhook tester
+- ✅ **Documentation:** Complete README and user guides
 
 ## Contributing
 
 1. Fork the repository
-2. Create a feature branch
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
 3. Make your changes
 4. Add tests if applicable
-5. Submit a pull request
+5. Commit your changes: `git commit -m 'Add amazing feature'`
+6. Push to the branch: `git push origin feature/amazing-feature`
+7. Submit a pull request
 
 ## License
 
 This project is licensed under the ISC License.
+
+---
+
+**📞 Support:** For issues with the deployed application, check the troubleshooting section or create an issue in the repository.

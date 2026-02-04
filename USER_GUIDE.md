@@ -4,10 +4,23 @@
 
 Spenza Webhook System is a comprehensive platform for managing webhook subscriptions, handling incoming webhook events, and testing webhook integrations. This guide will walk you through every feature and workflow.
 
+## 🌐 Live Application
+
+**Production URL:** https://sp-webhook-frontend.vercel.app
+**Backend API:** https://sp-webhook-backend-production.up.railway.app
+
+*You can use the live application directly or run it locally for development.*
+
 ## 🚀 Quick Start
 
-1. **Start Backend**: `cd packages/backend && npm run start:dev`
-2. **Start Frontend**: `cd packages/frontend && npm run dev`
+### Option 1: Use Live Application
+1. **Open Browser**: Navigate to https://sp-webhook-frontend.vercel.app
+2. **Create Account**: Sign up with email and password
+3. **Start Using**: Begin creating webhook subscriptions
+
+### Option 2: Local Development
+1. **Start Backend**: `npm run start:dev` (from backend directory)
+2. **Start Frontend**: `npm run dev` (from frontend directory)
 3. **Open Browser**: Navigate to `http://localhost:5173`
 4. **Create Account**: Sign up with email and password
 5. **Start Using**: Begin creating webhook subscriptions
@@ -24,6 +37,14 @@ Spenza Webhook System is a comprehensive platform for managing webhook subscript
 ### **How to Use**
 
 #### **Step 1: Registration**
+**Live Application:**
+1. Navigate to https://sp-webhook-frontend.vercel.app
+2. Click **"create a new account"** link
+3. Enter your email and password (minimum 6 characters)
+4. Click **"Create Account"**
+5. **Result**: Account created and automatically logged in
+
+**Local Development:**
 1. Navigate to `http://localhost:5173`
 2. Click **"create a new account"** link
 3. Enter your email and password (minimum 6 characters)
@@ -107,6 +128,11 @@ The dashboard is your main control center for managing all webhook subscriptions
 The Webhook Tester is a powerful tool for testing webhook functionality and integrating with external services like Clerk, Stripe, GitHub, etc.
 
 ### **How to Access**
+**Live Application:**
+1. Click **"Webhook Tester"** tab in navigation
+2. Or navigate directly to https://sp-webhook-frontend.vercel.app/tester
+
+**Local Development:**
 1. Click **"Webhook Tester"** tab in navigation
 2. Or navigate directly to `http://localhost:5173/tester`
 
@@ -150,7 +176,9 @@ The Webhook Tester is a powerful tool for testing webhook functionality and inte
 **How to Use**:
 1. Select a subscription
 2. **Copy URL**: Click the clipboard icon next to webhook URL
-3. **Format**: `http://localhost:3000/webhook-events/[subscription-id]`
+3. **Format**: 
+   - **Production**: `https://sp-webhook-backend-production.up.railway.app/webhook-events/[subscription-id]`
+   - **Local**: `http://localhost:3000/webhook-events/[subscription-id]`
 4. **Use**: Paste this URL in external service webhook settings
 
 #### **4. Test Results History**
@@ -255,6 +283,13 @@ Track all incoming webhook events, their processing status, and handle failures.
 ### **Scenario: Setting Up Stripe Payment Webhooks**
 
 #### **Step 1: Create Account**
+**Live Application:**
+1. Go to https://sp-webhook-frontend.vercel.app
+2. Click "create a new account"
+3. Enter email and password
+4. Click "Create Account"
+
+**Local Development:**
 1. Go to `http://localhost:5173`
 2. Click "create a new account"
 3. Enter email and password
@@ -294,6 +329,12 @@ Track all incoming webhook events, their processing status, and handle failures.
 ## 🛠️ Troubleshooting Common Issues
 
 ### **Login Not Working**
+**Live Application:**
+- **Check**: Internet connection
+- **Check**: Browser console for JavaScript errors
+- **Solution**: Refresh page and try again
+
+**Local Development:**
 - **Check**: Backend is running on port 3000
 - **Check**: Browser console for JavaScript errors
 - **Solution**: Refresh page and try again
@@ -302,6 +343,8 @@ Track all incoming webhook events, their processing status, and handle failures.
 - **Check**: Subscription is active (green status)
 - **Check**: Callback URL is accessible
 - **Check**: External service webhook configuration
+- **Production**: Verify Railway backend is running
+- **Local**: Ensure local backend is running
 
 ### **External Service Can't Reach Your Webhook**
 - **Solution**: Use LocalTunnel to expose local backend
@@ -347,4 +390,20 @@ Track all incoming webhook events, their processing status, and handle failures.
 
 ---
 
-*This guide covers all features and workflows. For technical setup instructions, see the README files in the packages/backend and packages/frontend directories.*
+*This guide covers all features and workflows. For technical setup instructions, see the README.md file in the project root directory.*
+
+---
+
+## 📞 Support & Resources
+
+**Live Application:** https://sp-webhook-frontend.vercel.app
+**Backend API:** https://sp-webhook-backend-production.up.railway.app
+
+**Documentation:**
+- README.md - Technical setup and deployment
+- USER_GUIDE.md - This complete user guide
+
+**Getting Help:**
+- Check the troubleshooting section above
+- Verify backend status at the Railway URL
+- Test API endpoints directly if needed
