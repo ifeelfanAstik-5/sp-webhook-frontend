@@ -30,23 +30,18 @@ A React-based frontend for the Spenza webhook management system with built-in te
 
 ### Installation
 
-1. Navigate to the frontend directory:
-```bash
-cd packages/frontend
-```
-
-2. Install dependencies:
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Set up environment variables:
+2. Set up environment variables:
 ```bash
 cp .env.example .env
 # Edit .env with your configuration
 ```
 
-4. Start the development server:
+3. Start the development server:
 ```bash
 npm run dev
 ```
